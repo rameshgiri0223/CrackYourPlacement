@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isValid(String s) {
+        //Create a stack of character type
+        Stack<Character> st = new Stack<>();
+
+        for(char ch:s.toCharArray()){
+            if(ch == '('){
+                st.push(')');
+            }
+            else if(ch == '{'){
+                st.push('}');
+            }
+            else if(ch == '['){
+                st.push(']');
+            }
+            //If we get any character rather than ({[ then we try to pop from the stack
+            else if(st.isEmpty() || st.pop() != ch){
+                return false;
+            }
+            
+        }
+        return st.isEmpty();
+        
+    }
+}
